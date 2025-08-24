@@ -1,7 +1,7 @@
 import { useState } from "react";
 import QuoteBar from "../components/QuoteBar";
 import QuickSuggestions from "../components/QuickSuggestions";
-
+import "../styles/style.css";
 export default function Home() {
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState([]);
