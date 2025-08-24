@@ -1,1 +1,127 @@
+/* General page layout */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom, #1e3a8a, #6d28d9);
+  color: white;
+  height: 100%;
+}
 
+/* Top bar */
+.top-bar {
+  background: linear-gradient(to right, #6d28d9, #1e3a8a);
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 15px;
+  color: gold;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+/* Krishna quote */
+.quote-bar {
+  background: linear-gradient(to right, #6d28d9, #1e3a8a);
+  color: gold;
+  text-align: center;
+  font-style: italic;
+  padding: 8px;
+  font-size: 14px;
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+}
+
+/* Chat area */
+.chat-area {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Chat bubbles */
+.chat-bubble {
+  padding: 10px 15px;
+  border-radius: 20px;
+  max-width: 80%;
+}
+
+.user {
+  background: white;
+  color: black;
+  align-self: flex-end;
+}
+
+.ai {
+  background: #2563eb;
+  color: white;
+  align-self: flex-start;
+  animation: aura 2s infinite ease-in-out;
+}
+
+/* Aura animation */
+@keyframes aura {
+  0% { box-shadow: 0 0 5px rgba(255,215,0,0.5); }
+  50% { box-shadow: 0 0 15px rgba(138,43,226,0.7); }
+  100% { box-shadow: 0 0 5px rgba(255,215,0,0.5); }
+}
+
+/* Quick suggestion buttons */
+.quick-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 8px;
+  background: linear-gradient(to right, #6d28d9, #1e3a8a);
+}
+
+.quick-buttons button {
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: 1px solid gold;
+  background: transparent;
+  color: gold;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.quick-buttons button:hover {
+  background: gold;
+  color: black;
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+}
+
+/* Input bar */
+.input-bar {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background: white;
+  border-top: 1px solid #ddd;
+}
+
+.input-bar input {
+  flex: 1;
+  padding: 10px;
+  border: 2px solid #2563eb;
+  border-radius: 8px;
+  outline: none;
+}
+
+.input-bar button {
+  margin-left: 10px;
+  background: linear-gradient(to right, #6d28d9, #1e3a8a);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.input-bar button:hover {
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+  transform: scale(1.1);
+}
