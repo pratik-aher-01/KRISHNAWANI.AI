@@ -1,15 +1,18 @@
-// pages/index.js
 import { useState } from "react";
+import QuoteBar from "../components/QuoteBar";
+import QuickSuggestions from "../components/QuickSuggestions";
 
 export default function Home() {
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState([]);
 
-  const handleSend = () => {
-    if (!input.trim()) return;
-    setMessages([...messages, { type: "user", text: input }]);
+  const handleSend = (text) => {
+    const newText = text || input;
+    if (!newText.trim()) return;
+
+    setMessages([...messages, { type: "user", text: newText }]);
     setInput("");
-    // Dummy AI response for now
+
     setTimeout(() => {
       setMessages((prev) => [
         ...prev,
@@ -20,11 +23,13 @@ export default function Home() {
 
   return (
     <div className="flex flex-col h-screen bg-gradient-to-b from-blue-900 to-purple-900 text-white">
-      
       {/* Top Bar */}
       <div className="p-4 text-center text-2xl font-bold bg-gradient-to-r from-purple-700 to-blue-700 shadow-lg">
         KRISHNAVANI.AI
       </div>
+
+      {/* Krishna Quote */}
+      <QuoteBar />
 
       {/* Chat Area */}
       <div className="flex-1 overflow-y-auto p-4 space-y-3">
@@ -42,6 +47,9 @@ export default function Home() {
         ))}
       </div>
 
+      {/* Quick Suggestions */}
+      <QuickSuggestions onSelect={handleSend} />
+
       {/* Input Bar */}
       <div className="p-4 bg-white flex items-center space-x-2 shadow-inner">
         <input
@@ -51,7 +59,7 @@ export default function Home() {
           onChange={(e) => setInput(e.target.value)}
         />
         <button
-          onClick={handleSend}
+          onClick={() => handleSend()}
           className="p-3 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white font-bold shadow-lg hover:shadow-xl transition"
         >
           ➤
@@ -59,4 +67,4 @@ export default function Home() {
       </div>
     </div>
   );
-            }
+}
