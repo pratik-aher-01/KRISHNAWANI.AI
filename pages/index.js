@@ -68,3 +68,31 @@ export default function Home() {
     </div>
   );
 }
+<div className="top-bar">KRISHNAVANI.AI</div>
+<div className="quote-bar">“Change is the law of the universe.” – Lord Krishna</div>
+
+<div className="chat-area">
+  {messages.map((msg, i) => (
+    <div
+      key={i}
+      className={`chat-bubble ${msg.type === "user" ? "user" : "ai"}`}
+    >
+      {msg.text}
+    </div>
+  ))}
+</div>
+
+<div className="quick-buttons">
+  <button onClick={() => handleSend("Career Guidance")}>Career Guidance</button>
+  <button onClick={() => handleSend("Life Advice")}>Life Advice</button>
+  <button onClick={() => handleSend("Motivation")}>Motivation</button>
+</div>
+
+<div className="input-bar">
+  <input
+    placeholder="Type your doubt..."
+    value={input}
+    onChange={(e) => setInput(e.target.value)}
+  />
+  <button onClick={() => handleSend()}>➤</button>
+</div>
